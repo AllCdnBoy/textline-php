@@ -27,7 +27,7 @@ class Conversations extends Resource
     public function scheduleByPhone(string $number, int $timestamp, string $comment, array $body = [])
     {
         $response = $this->client
-                         ->post("api/conversations/schedule.json", array_merge([
+                         ->post("conversations/schedule.json", array_merge([
                              'phone_number' => $number,
                              'timestamp' => $timestamp,
                              'comment' => [
