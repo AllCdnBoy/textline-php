@@ -1,10 +1,10 @@
 {
-    "name": "dbatten5/textline-php",
+    "name": "allcdnboy/textline-php",
     "description": "PHP client for the Textline API",
     "authors": [
         {
-            "name": "Dom Batten",
-            "email": "dominic.batten@googlemail.com"
+            "name": "Sean Glendinning",
+            "email": "allcdnboy@gmail.com"
         }
     ],
     "autoload": {

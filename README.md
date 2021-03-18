@@ -1,11 +1,14 @@
 # Textline PHP
 
+## Credit
+Original work from https://github.com/dbatten5/textline-php
+
 ## Setup
 
 Using composer:
 
 ```bash
-composer require dbatten5/textline-php
+composer require allcdnboy/textline-php
 ```
 
 ## Usage
@@ -61,13 +64,17 @@ use Textline\Resources\Message;
 
 $message = new Message('foo');
 
-// (optional) add attachment
+// to send a whisper
+$message = new Message('bar',true);
+
+// optional parameters
 $message->addAttachment('application/pdf','name-of-file.pdf', '/path/to/file');
+$message->addGroupUuid('1234-56789-0123456');
+$message->setResolve();
                 
 $client->conversations()
        ->messageByPhone($number, $message);
 ```
-For a list of a `$body` options see [here](https://textline.docs.apiary.io/#reference/conversations/phone-numbers/message-a-phone-number). Note that either `whisper` or `comment` must be specified in the request, but not both.
 
 #### Schedule a message by phone number
 
