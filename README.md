@@ -56,14 +56,16 @@ $client->conversations()
 
 ```php
 $number = '0781234567';
-$body = [
-    'comment' => [
-        'body' => 'foo'
-    ]
-];
 
+use Textline\Resources\Message;
+
+$message = new Message('foo');
+
+// (optional) add attachment
+$message->addAttachment('application/pdf','name-of-file.pdf', '/path/to/file');
+                
 $client->conversations()
-       ->messageByPhone($number, $body);
+       ->messageByPhone($number, $message);
 ```
 For a list of a `$body` options see [here](https://textline.docs.apiary.io/#reference/conversations/phone-numbers/message-a-phone-number). Note that either `whisper` or `comment` must be specified in the request, but not both.
 
