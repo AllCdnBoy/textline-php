@@ -7,7 +7,7 @@ class Customers extends Resource
     public function get(array $query = [])
     {
         $response = $this->client
-                         ->get('customers.json', $query)
+                         ->get('api/customers.json', $query)
                          ->getContent();
 
         return $response;
@@ -16,7 +16,7 @@ class Customers extends Resource
     public function create(string $number, $body = [])
     {
         $response = $this->client
-                         ->post('customers.json', array_merge($body, [
+                         ->post('api/customers.json', array_merge($body, [
                              'phone_number' => $number
                          ]))
                          ->getContent();
