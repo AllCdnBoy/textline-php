@@ -7,7 +7,7 @@ class Organization extends Resource
     public function get(array $query = [])
     {
         $response = $this->client
-                         ->get("organization.json", $query)
+                         ->get("api/organization.json", $query)
                          ->getContent();
 
         return $response;
