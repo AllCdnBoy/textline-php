@@ -21,7 +21,7 @@ class Conversation extends Resource
     public function retrieve(array $query = [])
     {
         $response = $this->client
-                         ->get("conversation/{$this->uuid}.json", $query)
+                         ->get("api/conversation/{$this->uuid}.json", $query)
                          ->getContent();
 
         return $response;
@@ -30,7 +30,7 @@ class Conversation extends Resource
     public function message(array $body = [])
     {
         $response = $this->client
-                         ->post("conversation/{$this->uuid}.json", $body)
+                         ->post("api/conversation/{$this->uuid}.json", $body)
                          ->getContent();
 
         return $response;
@@ -39,7 +39,7 @@ class Conversation extends Resource
     public function scheduleMessage(int $timestamp, string $body)
     {
         $response = $this->client
-                         ->post("conversation/{$this->uuid}/schedule.json", [
+                         ->post("api/conversation/{$this->uuid}/schedule.json", [
                              'timestamp' => $timestamp,
                              'comment' => [
                                  'body' => $body
@@ -53,7 +53,7 @@ class Conversation extends Resource
     public function resolve()
     {
         $response = $this->client
-                         ->post("conversation/{$this->uuid}/resolve.json")
+                         ->post("api/conversation/{$this->uuid}/resolve.json")
                          ->getContent();
 
         return $response;
@@ -62,7 +62,7 @@ class Conversation extends Resource
     public function transfer()
     {
         $response = $this->client
-                         ->post("conversation/{$this->uuid}/transfer.json")
+                         ->post("api/conversation/{$this->uuid}/transfer.json")
                          ->getContent();
 
         return $response;
