@@ -21,7 +21,7 @@ class Customer extends Resource
     public function retrieve()
     {
         $response = $this->client
-                         ->get("customer/{$this->uuid}.json")
+                         ->get("api/customer/{$this->uuid}.json")
                          ->getContent();
 
         return $response;
@@ -30,7 +30,7 @@ class Customer extends Resource
     public function update(array $body = [])
     {
         $response = $this->client
-                         ->put("customer/{$this->uuid}.json", $body)
+                         ->put("api/customer/{$this->uuid}.json", $body)
                          ->getContent();
 
         return $response;
